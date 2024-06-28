@@ -19,6 +19,6 @@ while True:
             sms(msg=msg)
         else:
             msg ="{} - EURUSD : No Signal".format(results[1])
-            #sms(msg=msg)
+            sms(msg=msg)
         
     time.sleep(1)
