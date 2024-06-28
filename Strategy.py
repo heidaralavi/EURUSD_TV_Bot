@@ -88,11 +88,11 @@ def ThreeSMA(chart_data) -> list:
 
 
     # Analysis Return
-    if IsPriceOverSma7(low=low,sma_7=sma_7) and Is3SMABullish(sma_7=sma_7,sma_14=sma_14,sma_21=sma_21):
+    if IsPriceOverSma7(low=low,sma_7=sma_7) and Is3SMABullish(sma_7=sma_7,sma_14=sma_14,sma_21=sma_21) and IsUpTrend(open=open,close=close):
         results = ['Week BUY',times]
     if IsUpPinBar(open=open,close=close,low=low,high=high) and Is3SMABullish(sma_7=sma_7,sma_14=sma_14,sma_21=sma_21):
         results = ['Stonge BUY',times]
-    if IsPriceUnderSma7(high=high,sma_7=sma_7) and Is3SMABearish(sma_7=sma_7,sma_14=sma_14,sma_21=sma_21):
+    if IsPriceUnderSma7(high=high,sma_7=sma_7) and Is3SMABearish(sma_7=sma_7,sma_14=sma_14,sma_21=sma_21) and IsDownTrend(open=open,close=close):
         results = ['Week SELL',times]
     if IsDownPinBar(open=open,close=close,low=low,high=high) and Is3SMABearish(sma_7=sma_7,sma_14=sma_14,sma_21=sma_21):
         results = ['Stronge SELL',times]
