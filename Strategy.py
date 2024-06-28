@@ -56,6 +56,17 @@ def Is3SMABearish(sma_7:float,sma_14:float,sma_21:float) -> bool:
     else:
         return False
 
+def IsPriceOverSma7(low:float,sma_7:float) ->bool:
+    if low > sma_7:
+        return True
+    else:
+        return False
+def IsPriceUnderSma7(high:float,sma_7:float) ->bool:
+    if high < sma_7:
+        return True
+    else:
+        return False
+
 def ThreeSMA(chart_data) -> list:
     
     chart_data['SMA_7'] = chart_data.close.rolling(7).mean()
@@ -77,10 +88,14 @@ def ThreeSMA(chart_data) -> list:
 
 
     # Analysis Return
+    if IsPriceOverSma7(low=low,sma_7=sma_7) and Is3SMABullish(sma_7=sma_7,sma_14=sma_14,sma_21=sma_21):
+        results = ['Week BUY',times]
     if IsUpPinBar(open=open,close=close,low=low,high=high) and Is3SMABullish(sma_7=sma_7,sma_14=sma_14,sma_21=sma_21):
-        results = ['BUY',times]
+        results = ['Stonge BUY',times]
+    if IsPriceUnderSma7(high=high,sma_7=sma_7) and Is3SMABearish(sma_7=sma_7,sma_14=sma_14,sma_21=sma_21):
+        results = ['Week SELL',times]
     if IsDownPinBar(open=open,close=close,low=low,high=high) and Is3SMABearish(sma_7=sma_7,sma_14=sma_14,sma_21=sma_21):
-        results = ['SELL',times]
+        results = ['Stronge SELL',times]
     return results
     
 

@@ -11,14 +11,18 @@ while True:
         results = ThreeSMA(df)
         #print(results[0])
                
-        if results[0] == "BUY":
-            msg ="{} - EURUSD : BUY Signal".format(results[1])
+        if results[0] == "Week BUY":
+            msg ="{} - EURUSD : Week BUY Signal (15m TimeFrame)".format(results[1])
             sms(msg=msg)
-        elif results == "SELL":
-            msg ="{} - EURUSD : SELL Signal".format(results[1])
+        if results[0] == "Stonge BUY":
+            msg ="{} - EURUSD : Stonge BUY Signal (15m TimeFrame)".format(results[1])
             sms(msg=msg)
-        else:
-            msg ="{} - EURUSD : No Signal".format(results[1])
+        if results[0] == "Week SELL":
+            msg ="{} - EURUSD : Week SELL Signal (15m TimeFrame)".format(results[1])
             sms(msg=msg)
+        if results[0] == "Stronge SELL":
+            msg ="{} - EURUSD : Stronge SELL Signal (15m TimeFrame)".format(results[1])
+            sms(msg=msg)
+       
         
     time.sleep(1)
