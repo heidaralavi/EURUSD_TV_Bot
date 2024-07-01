@@ -28,18 +28,18 @@ def IsDownTrend(open:float,close:float) -> bool:
 
 def IsUpPinBar(open:float,close:float,low:float,high:float) -> bool:
     condition_1:bool = IsUpTrend(open=open,close=close)
-    condition_2:bool = shadows(open=open,close=close,low=low,high=high)['down'] > (3 * body(open=open,close=close))
-    condition_3:bool = shadows(open=open,close=close,low=low,high=high)['up'] < (0.5 * body(open=open,close=close))
-    if condition_1 and condition_2 and condition_3:
+    condition_2:bool = shadows(open=open,close=close,low=low,high=high)['down'] > (1.5 * body(open=open,close=close))
+    #condition_3:bool = shadows(open=open,close=close,low=low,high=high)['up'] < (0.5 * body(open=open,close=close))
+    if condition_1 and condition_2:   #and condition_3:
         return True
     else:
         return False
 
 def IsDownPinBar(open:float,close:float,low:float,high:float) -> bool:
     condition_1:bool = IsDownTrend(open=open,close=close)
-    condition_2:bool = shadows(open=open,close=close,low=low,high=high)['up'] > (3 * body(open=open,close=close))
-    condition_3:bool = shadows(open=open,close=close,low=low,high=high)['down'] < (0.5 * body(open=open,close=close))
-    if condition_1 and condition_2 and condition_3:
+    condition_2:bool = shadows(open=open,close=close,low=low,high=high)['up'] > (1.5 * body(open=open,close=close))
+    #condition_3:bool = shadows(open=open,close=close,low=low,high=high)['down'] < (0.5 * body(open=open,close=close))
+    if condition_1 and condition_2 : #and condition_3:
         return True
     else:
         return False

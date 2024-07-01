@@ -6,7 +6,7 @@ import time
 
 
 while True:
-    if dt.datetime.now(dt.UTC).second == 5 and dt.datetime.now(dt.UTC).minute in range(0,60,5):
+    if dt.datetime.now(dt.UTC).second == 5 and dt.datetime.now(dt.UTC).minute in range(0,60,15):
         df = asset_history()
         results = ThreeSMA(df)
         #print(results[0])
